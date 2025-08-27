@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 나만의 음악 DNA - 음악취향 설문</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-blue-900 to-pink-800 min-h-screen font-['Inter']">
+    <!-- 배경 음악 파동 애니메이션 -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-pink-500/20 animate-pulse"></div>
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-400/30 rounded-full animate-bounce"></div>
+        <div class="absolute top-3/4 right-1/4 w-24 h-24 bg-blue-400/30 rounded-full animate-bounce" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-16 h-16 bg-pink-400/30 rounded-full animate-bounce" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-4 py-8">
+        <!-- 헤더 -->
+        <header class="text-center mb-12">
+            <div class="inline-block p-4 bg-white/10 backdrop-blur-md rounded-full mb-6">
+                <span class="text-6xl">🎵</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent">
+                나만의 음악 DNA
+            </h1>
+            <p class="text-xl text-purple-200 max-w-2xl mx-auto">
+                당신의 음악 취향을 분석하여 고유한 음악 프로필을 만들어드립니다
+            </p>
+        </header>
+
+        <!-- 설문 폼 -->
+        <div class="max-w-4xl mx-auto">
+            <form id="musicSurveyForm" class="space-y-8">
+                <!-- 1. 기본 음악 정보 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                        <span class="text-4xl mr-3">🎼</span>
+                        기본 음악 정보
+                    </h2>
+                    
+                    <!-- 음악 장르 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">가장 좋아하는 음악 장르 (복수 선택 가능)</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="K-POP" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">K-POP</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="팝" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">팝</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="힙합" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">힙합</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="R&B" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">R&B</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="록" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">록</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="재즈" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">재즈</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="클래식" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">클래식</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="일렉트로닉" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">일렉트로닉</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="genres" value="인디" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">인디</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 청취 시간 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">하루에 음악을 듣는 시간</label>
+                        <select name="listeningTime" class="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white focus:ring-2 focus:ring-purple-400 focus:border-transparent">
+                            <option value="">선택해주세요</option>
+                            <option value="30분 이하">30분 이하</option>
+                            <option value="30분-1시간">30분-1시간</option>
+                            <option value="1-2시간">1-2시간</option>
+                            <option value="2-4시간">2-4시간</option>
+                            <option value="4시간 이상">4시간 이상</option>
+                        </select>
+                    </div>
+
+                    <!-- 청취 상황 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">음악을 주로 듣는 상황 (복수 선택 가능)</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="situations" value="운동" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🏃‍♂️ 운동</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="situations" value="공부" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">📚 공부</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="situations" value="퇴근길" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🚇 퇴근길</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="situations" value="집안일" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🧹 집안일</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="situations" value="드라이브" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🚗 드라이브</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="situations" value="샤워" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🚿 샤워</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 선호 시대 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">가장 좋아하는 시대의 음악</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="era" value="80s" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎸 80s</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="era" value="90s" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎤 90s</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="era" value="2000s" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">💿 2000s</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="era" value="2010s" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">📱 2010s</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="era" value="현재" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🔥 현재</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 감정 & 분위기 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                        <span class="text-4xl mr-3">💫</span>
+                        감정 & 분위기
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-lg font-semibold text-purple-200 mb-4">기분이 좋을 때 듣는 음악</label>
+                            <input type="text" name="happyMusic" placeholder="예: 밝고 경쾌한 팝송" class="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-purple-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-lg font-semibold text-purple-200 mb-4">우울할 때 듣는 음악</label>
+                            <input type="text" name="sadMusic" placeholder="예: 잔잔한 발라드" class="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-purple-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-lg font-semibold text-purple-200 mb-4">집중할 때 듣는 음악</label>
+                            <input type="text" name="focusMusic" placeholder="예: 클래식, 재즈" class="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-purple-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-lg font-semibold text-purple-200 mb-4">잠들기 전에 듣는 음악</label>
+                            <input type="text" name="sleepMusic" placeholder="예: ASMR, 자연음" class="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-purple-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-lg font-semibold text-purple-200 mb-4">운동할 때 듣는 음악</label>
+                            <input type="text" name="workoutMusic" placeholder="예: 강렬한 EDM" class="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-purple-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 음악적 요소 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                        <span class="text-4xl mr-3">🎹</span>
+                        음악적 요소
+                    </h2>
+                    
+                    <!-- 중요 요소 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">가장 중요하게 생각하는 요소</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="importantElement" value="멜로디" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎵 멜로디</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="importantElement" value="가사" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">📝 가사</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="importantElement" value="비트" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🥁 비트</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="importantElement" value="보컬" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎤 보컬</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 선호 악기 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">좋아하는 악기</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="instruments" value="피아노" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎹 피아노</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="instruments" value="기타" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎸 기타</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="instruments" value="드럼" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🥁 드럼</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="instruments" value="바이올린" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎻 바이올린</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="instruments" value="색소폰" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎷 색소폰</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="instruments" value="트럼펫" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎺 트럼펫</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 템포 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">선호하는 템포</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="tempo" value="느린" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🐌 느린</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="tempo" value="중간" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🚶 중간</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="tempo" value="빠른" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🏃 빠른</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 음악 언어 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">좋아하는 음악 언어</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="languages" value="한국어" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🇰🇷 한국어</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="languages" value="영어" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🇺🇸 영어</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="languages" value="일본어" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🇯🇵 일본어</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="languages" value="기타" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🌍 기타</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 라이프스타일 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                        <span class="text-4xl mr-3">🌟</span>
+                        라이프스타일
+                    </h2>
+                    
+                    <!-- 콘서트 경험 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">콘서트/페스티벌 참여 경험</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="concertExperience" value="없음" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">❌ 없음</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="concertExperience" value="1-2회" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎫 1-2회</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="concertExperience" value="3-5회" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎫 3-5회</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="concertExperience" value="5회 이상" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎫 5회 이상</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 음악 SNS 사용 -->
+                    <div class="mb-6">
+                        <label class="block text-lg font-semibold text-purple-200 mb-4">음악 관련 SNS 사용</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="musicSNS" value="Spotify" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🎵 Spotify</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="musicSNS" value="Apple Music" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🍎 Apple Music</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="musicSNS" value="YouTube Music" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">📺 YouTube Music</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="musicSNS" value="Melon" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🍈 Melon</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="musicSNS" value="Genie" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">🧞 Genie</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" name="musicSNS" value="사용하지 않음" class="w-5 h-5 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500">
+                                <span class="text-white group-hover:text-purple-300 transition-colors">❌ 사용하지 않음</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 제출 버튼 -->
+                <div class="text-center">
+                    <button type="submit" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-4 px-8 rounded-full text-xl transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+                        🎵 나만의 음악 DNA 분석하기
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 결과 모달 -->
+        <div id="resultModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50">
+            <div class="flex items-center justify-center min-h-screen p-4">
+                <div class="bg-gradient-to-br from-purple-900 to-blue-900 rounded-3xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-bold text-white mb-4">🎵 설문이 완료되었습니다!</h2>
+                        <p class="text-purple-200 text-lg">당신의 음악 DNA를 분석하고 있습니다...</p>
+                    </div>
+                    
+                    <div id="resultContent" class="space-y-6">
+                        <!-- 결과 내용이 여기에 동적으로 추가됩니다 -->
+                    </div>
+                    
+                    <div class="text-center mt-8">
+                        <button onclick="closeResultModal()" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full transform hover:scale-105 transition-all duration-200">
+                            닫기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 인생음악 탄생 페이지 -->
+        <div id="birthPage" class="fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-pink-800 hidden z-50">
+            <div class="relative h-full overflow-hidden">
+                <!-- 배경 파동 애니메이션 -->
+                <div class="absolute inset-0">
+                    <div class="absolute top-1/4 left-1/4 w-40 h-40 bg-purple-400/20 rounded-full animate-pulse"></div>
+                    <div class="absolute top-3/4 right-1/4 w-32 h-32 bg-blue-400/20 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+                    <div class="absolute top-1/2 left-1/2 w-24 h-24 bg-pink-400/20 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+                </div>
+
+                <!-- 메인 콘텐츠 -->
+                <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+                    <!-- 로딩 애니메이션 -->
+                    <div id="loadingSection" class="mb-12">
+                        <div class="inline-block p-6 bg-white/10 backdrop-blur-md rounded-full mb-8">
+                            <span class="text-8xl">🎵</span>
+                        </div>
+                        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent">
+                            당신의 인생음악이
+                        </h1>
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 bg-gradient-to-r from-pink-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
+                            탄생하고 있습니다...
+                        </h2>
+                        
+                        <!-- 로딩 스피너 -->
+                        <div class="flex justify-center mb-8">
+                            <div class="relative">
+                                <div class="w-16 h-16 border-4 border-purple-200/30 border-t-purple-400 rounded-full animate-spin"></div>
+                                <div class="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-pink-400 rounded-full animate-spin" style="animation-duration: 1.5s; animation-direction: reverse;"></div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-xl text-purple-200 max-w-2xl mx-auto">
+                            음악 DNA를 분석하여 당신만의 고유한 음악 캐릭터를 생성하고 있어요
+                        </p>
+                    </div>
+
+                    <!-- 캐릭터 생성 섹션 -->
+                    <div id="characterSection" class="hidden">
+                        <div class="mb-8">
+                            <h3 class="text-3xl font-bold text-white mb-4">🎉 탄생 완료!</h3>
+                            <p class="text-purple-200 text-lg">당신의 인생음악 캐릭터가 완성되었습니다</p>
+                        </div>
+                        
+                        <!-- 캐릭터 캔버스 -->
+                        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 mb-8">
+                            <canvas id="characterCanvas" width="400" height="400" class="mx-auto rounded-2xl cursor-pointer hover:scale-105 transition-transform duration-200"></canvas>
+                            <p class="text-center text-purple-200 mt-4 text-sm">마우스를 움직여보세요! 🖱️✨</p>
+                        </div>
+                        
+                        <!-- 캐릭터 정보 -->
+                        <div id="characterInfo" class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 mb-8">
+                            <!-- 캐릭터 정보가 여기에 동적으로 추가됩니다 -->
+                        </div>
+                        
+                        <!-- 액션 버튼 -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button onclick="downloadCharacter()" class="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-full transform hover:scale-105 transition-all duration-200">
+                                💾 캐릭터 다운로드
+                            </button>
+                            <button onclick="shareCharacter()" class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full transform hover:scale-105 transition-all duration-200">
+                                📱 SNS 공유
+                            </button>
+                            <button onclick="goBackToSurvey()" class="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold py-3 px-6 rounded-full transform hover:scale-105 transition-all duration-200">
+                                🔄 다시 설문하기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 설문 제출 처리
+        document.getElementById('musicSurveyForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const surveyData = {};
+            
+            // 폼 데이터 수집
+            for (let [key, value] of formData.entries()) {
+                if (surveyData[key]) {
+                    if (Array.isArray(surveyData[key])) {
+                        surveyData[key].push(value);
+                    } else {
+                        surveyData[key] = [surveyData[key], value];
+                    }
+                } else {
+                    surveyData[key] = value;
+                }
+            }
+            
+            // 체크박스 그룹 처리
+            const checkboxes = this.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(checkbox => {
+                const name = checkbox.name;
+                if (!surveyData[name]) {
+                    surveyData[name] = [];
+                }
+                if (Array.isArray(surveyData[name])) {
+                    surveyData[name].push(checkbox.value);
+                } else {
+                    surveyData[name] = [surveyData[name], checkbox.value];
+                }
+            });
+            
+            try {
+                const response = await fetch('/api/survey', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(surveyData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showResults(result.analysis);
+                } else {
+                    alert('설문 처리 중 오류가 발생했습니다.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('네트워크 오류가 발생했습니다.');
+            }
+        });
+
+        // 결과 표시
+        function showResults(analysis) {
+            const modal = document.getElementById('resultModal');
+            const content = document.getElementById('resultContent');
+            
+            content.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <h3 class="text-2xl font-bold text-white mb-4">🎭 음악 성격</h3>
+                        <p class="text-purple-200 text-lg">${analysis.musicPersonality}</p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <h3 class="text-2xl font-bold text-white mb-4">⏰ 청취 습관</h3>
+                        <p class="text-purple-200 text-lg">${analysis.listeningHabits}</p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <h3 class="text-2xl font-bold text-white mb-4">💝 감정 프로필</h3>
+                        <p class="text-purple-200 text-lg">${analysis.emotionalProfile}</p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <h3 class="text-2xl font-bold text-white mb-4">🎵 추천 장르</h3>
+                        <p class="text-purple-200 text-lg">${analysis.recommendations.join(', ')}</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl p-6 border border-white/20 text-center">
+                    <h3 class="text-2xl font-bold text-white mb-4">🎉 축하합니다!</h3>
+                    <p class="text-purple-200 text-lg">당신만의 고유한 음악 프로필이 완성되었습니다!</p>
+                    <p class="text-purple-300 mt-2">이제 더 나은 음악을 발견해보세요.</p>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            
+            // 3초 후 인생음악 탄생 페이지로 이동
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                showBirthPage(analysis);
+            }, 3000);
+        }
+
+        // 인생음악 탄생 페이지 표시
+        function showBirthPage(analysis) {
+            const birthPage = document.getElementById('birthPage');
+            const loadingSection = document.getElementById('loadingSection');
+            const characterSection = document.getElementById('characterSection');
+            
+            birthPage.classList.remove('hidden');
+            
+            // 로딩 애니메이션 (5초)
+            setTimeout(() => {
+                loadingSection.classList.add('hidden');
+                characterSection.classList.remove('hidden');
+                
+                // 캐릭터 생성
+                createCharacter(analysis);
+            }, 5000);
+        }
+
+        // 캐릭터 생성
+        function createCharacter(analysis) {
+            const canvas = document.getElementById('characterCanvas');
+            const ctx = canvas.getContext('2d');
+            const characterInfo = document.getElementById('characterInfo');
+            
+            // 캐릭터 정보 표시
+            characterInfo.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-2">🎭 음악 성격</h4>
+                        <p class="text-purple-200">${analysis.musicPersonality}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-2">🎵 선호 장르</h4>
+                        <p class="text-purple-200">${analysis.topGenres.join(', ')}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-2">⏰ 청취 습관</h4>
+                        <p class="text-purple-200">${analysis.listeningHabits}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-2">💝 감정 프로필</h4>
+                        <p class="text-purple-200">${analysis.emotionalProfile}</p>
+                    </div>
+                </div>
+            `;
+            
+            // 실시간 애니메이션 시작
+            startCharacterAnimation(ctx, analysis);
+        }
+
+        // 실시간 캐릭터 애니메이션
+        function startCharacterAnimation(ctx, analysis) {
+            let mouseX = 200;
+            let mouseY = 200;
+            let isHovering = false;
+            let clickCount = 0;
+            
+            // 마우스 이벤트 리스너
+            const canvas = document.getElementById('characterCanvas');
+            
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+            });
+            
+            canvas.addEventListener('mouseenter', () => {
+                isHovering = true;
+            });
+            
+            canvas.addEventListener('mouseleave', () => {
+                isHovering = false;
+            });
+            
+            canvas.addEventListener('click', () => {
+                clickCount++;
+                // 클릭할 때마다 특별한 효과
+                createClickEffect(ctx, mouseX, mouseY, analysis);
+            });
+            
+            function animate() {
+                // 캔버스 초기화
+                ctx.clearRect(0, 0, 400, 400);
+                
+                // 캐릭터 그리기 (마우스 위치와 호버 상태 전달)
+                drawCharacter(ctx, analysis, mouseX, mouseY, isHovering, clickCount);
+                
+                // 다음 프레임 요청
+                requestAnimationFrame(animate);
+            }
+            
+            // 애니메이션 시작
+            animate();
+        }
+
+        // 클릭 효과 생성
+        function createClickEffect(ctx, x, y, analysis) {
+            const particles = [];
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 10,
+                    vy: (Math.random() - 0.5) * 10,
+                    life: 1,
+                    decay: 0.02,
+                    color: getRandomColor(analysis)
+                });
+            }
+            
+            // 파티클 애니메이션
+            function animateParticles() {
+                particles.forEach((particle, index) => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    particle.life -= particle.decay;
+                    
+                    if (particle.life > 0) {
+                        ctx.save();
+                        ctx.globalAlpha = particle.life;
+                        ctx.fillStyle = particle.color;
+                        ctx.beginPath();
+                        ctx.arc(particle.x, particle.y, 3, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.restore();
+                    }
+                });
+                
+                // 살아있는 파티클이 있으면 계속 애니메이션
+                if (particles.some(p => p.life > 0)) {
+                    requestAnimationFrame(animateParticles);
+                }
+            }
+            
+            animateParticles();
+        }
+
+        // 분석 결과에 따른 랜덤 색상
+        function getRandomColor(analysis) {
+            const colors = [
+                '#8b5cf6', '#ec4899', '#3b82f6', '#10b981', '#f59e0b',
+                '#ef4444', '#06b6d4', '#84cc16', '#f97316', '#a855f7'
+            ];
+            
+            // 음악 성격에 따른 색상 선택
+            if (analysis.musicPersonality.includes('트렌디')) {
+                return colors[1]; // 핑크
+            } else if (analysis.musicPersonality.includes('지성파')) {
+                return colors[2]; // 블루
+            } else if (analysis.musicPersonality.includes('활발한')) {
+                return colors[4]; // 오렌지
+            } else {
+                return colors[0]; // 보라
+            }
+        }
+
+        // 캐릭터 그리기 함수 (사랑스러운 입체적 캐릭터)
+        function drawCharacter(ctx, analysis, mouseX, mouseY, isHovering, clickCount) {
+            const centerX = 200;
+            const centerY = 200;
+            const time = Date.now() * 0.001;
+            
+            // 마우스와의 거리 계산
+            const mouseDistance = Math.sqrt((mouseX - centerX) ** 2 + (mouseY - centerY) ** 2);
+            const mouseInfluence = Math.max(0, 1 - mouseDistance / 200);
+            
+            // 호버 효과 강화
+            const hoverMultiplier = isHovering ? 1.5 : 1;
+            
+            // 캐릭터 타입 결정 (경우의 수별)
+            const characterType = determineCharacterType(analysis);
+            
+            // 배경 그라데이션 (캐릭터 타입별)
+            drawBackground(ctx, centerX, centerY, time, characterType, mouseX, mouseY);
+            
+            // 메인 캐릭터 몸체 (입체적)
+            drawCharacterBody(ctx, centerX, centerY, time, characterType, mouseX, mouseY, isHovering, mouseInfluence);
+            
+            // 캐릭터 얼굴 (사랑스러운)
+            drawCharacterFace(ctx, centerX, centerY, time, characterType, mouseX, mouseY, isHovering);
+            
+            // 캐릭터 액세서리 (개성)
+            drawCharacterAccessories(ctx, centerX, centerY, time, characterType, mouseX, mouseY, isHovering);
+            
+            // 파티클 시스템 (캐릭터 타입별)
+            drawParticles(ctx, centerX, centerY, time, characterType, mouseX, mouseY, isHovering);
+            
+            // 마우스 추적 효과
+            if (isHovering) {
+                drawMouseTrail(ctx, mouseX, mouseY, time, characterType);
+            }
+        }
+
+        // 캐릭터 타입 결정 (경우의 수별)
+        function determineCharacterType(analysis) {
+            let type = {
+                personality: '',
+                genre: '',
+                emotion: '',
+                tempo: '',
+                style: ''
+            };
+            
+            // 음악 성격 결정
+            if (analysis.musicPersonality.includes('트렌디')) {
+                type.personality = 'trendy';
+            } else if (analysis.musicPersonality.includes('지성파')) {
+                type.personality = 'intellectual';
+            } else if (analysis.musicPersonality.includes('활발한')) {
+                type.personality = 'energetic';
+            } else {
+                type.personality = 'open-minded';
+            }
+            
+            // 장르 결정
+            if (analysis.topGenres.includes('K-POP')) {
+                type.genre = 'kpop';
+            } else if (analysis.topGenres.includes('재즈')) {
+                type.genre = 'jazz';
+            } else if (analysis.topGenres.includes('힙합')) {
+                type.genre = 'hiphop';
+            } else if (analysis.topGenres.includes('클래식')) {
+                type.genre = 'classical';
+            } else if (analysis.topGenres.includes('일렉트로닉')) {
+                type.genre = 'electronic';
+            } else {
+                type.genre = 'mixed';
+            }
+            
+            // 감정 결정
+            if (analysis.emotionalProfile.includes('섬세한 감성')) {
+                type.emotion = 'sensitive';
+            } else if (analysis.emotionalProfile.includes('실용적')) {
+                type.emotion = 'practical';
+            } else {
+                type.emotion = 'independent';
+            }
+            
+            // 템포 결정
+            if (analysis.topGenres.includes('일렉트로닉') || analysis.topGenres.includes('힙합')) {
+                type.tempo = 'fast';
+            } else if (analysis.topGenres.includes('클래식') || analysis.topGenres.includes('재즈')) {
+                type.tempo = 'slow';
+            } else {
+                type.tempo = 'medium';
+            }
+            
+            // 스타일 결정
+            if (analysis.topGenres.includes('K-POP') && analysis.topGenres.includes('일렉트로닉')) {
+                type.style = 'futuristic';
+            } else if (analysis.topGenres.includes('재즈') && analysis.topGenres.includes('클래식')) {
+                type.style = 'elegant';
+            } else if (analysis.topGenres.includes('힙합') && analysis.topGenres.includes('록')) {
+                type.style = 'rebellious';
+            } else {
+                type.style = 'balanced';
+            }
+            
+            return type;
+        }
+
+        // 배경 그리기 (캐릭터 타입별)
+        function drawBackground(ctx, centerX, centerY, time, characterType, mouseX, mouseY) {
+            const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 200);
+            
+            // 캐릭터 타입별 배경 색상
+            let color1, color2, color3;
+            
+            switch (characterType.personality) {
+                case 'trendy':
+                    color1 = `hsla(${(time * 30 + mouseX * 0.1) % 360}, 80%, 70%, 0.4)`;
+                    color2 = `hsla(${(time * 45 + mouseY * 0.1) % 360}, 80%, 60%, 0.3)`;
+                    color3 = `hsla(${(time * 60) % 360}, 80%, 50%, 0.2)`;
+                    break;
+                case 'intellectual':
+                    color1 = `hsla(${(time * 20 + mouseX * 0.05) % 360}, 60%, 60%, 0.4)`;
+                    color2 = `hsla(${(time * 35 + mouseY * 0.05) % 360}, 60%, 50%, 0.3)`;
+                    color3 = `hsla(${(time * 50) % 360}, 60%, 40%, 0.2)`;
+                    break;
+                case 'energetic':
+                    color1 = `hsla(${(time * 40 + mouseX * 0.15) % 360}, 90%, 70%, 0.4)`;
+                    color2 = `hsla(${(time * 55 + mouseY * 0.15) % 360}, 90%, 60%, 0.3)`;
+                    color3 = `hsla(${(time * 70) % 360}, 90%, 50%, 0.2)`;
+                    break;
+                default:
+                    color1 = `hsla(${(time * 25 + mouseX * 0.1) % 360}, 70%, 65%, 0.4)`;
+                    color2 = `hsla(${(time * 40 + mouseY * 0.1) % 360}, 70%, 55%, 0.3)`;
+                    color3 = `hsla(${(time * 55) % 360}, 70%, 45%, 0.2)`;
+            }
+            
+            gradient.addColorStop(0, color1);
+            gradient.addColorStop(0.5, color2);
+            gradient.addColorStop(1, color3);
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 400, 400);
+        }
+
+        // 캐릭터 몸체 그리기 (입체적)
+        function drawCharacterBody(ctx, centerX, centerY, time, characterType, mouseX, mouseY, isHovering, mouseInfluence) {
+            const baseRadius = 80 + (isHovering ? 15 : 0);
+            
+            // 그림자 효과 (3D 입체감)
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+            ctx.shadowBlur = 25;
+            ctx.shadowOffsetX = 8;
+            ctx.shadowOffsetY = 8;
+            
+            // 메인 몸체 (입체적 파동)
+            ctx.beginPath();
+            
+            // 캐릭터 타입별 파동 패턴
+            let wavePattern;
+            switch (characterType.tempo) {
+                case 'fast':
+                    wavePattern = Math.sin(angle * 8 + time * 6) * 25 * hoverMultiplier;
+                    break;
+                case 'slow':
+                    wavePattern = Math.sin(angle * 4 + time * 2) * 15 * hoverMultiplier;
+                    break;
+                default:
+                    wavePattern = Math.sin(angle * 6 + time * 4) * 20 * hoverMultiplier;
+            }
+            
+            for (let angle = 0; angle < Math.PI * 2; angle += 0.05) {
+                // 복합 파동 함수 (입체감 강화)
+                const complexWave = wavePattern +
+                                   Math.sin(angle * 12 + time * 3) * 12 * hoverMultiplier +
+                                   Math.sin(angle * 3 + time * 2.5) * 18 * hoverMultiplier +
+                                   Math.sin(angle * 4 + mouseDistance * 0.01) * mouseInfluence * 15;
+                
+                const radius = baseRadius + complexWave;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+                
+                if (angle === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.closePath();
+            
+            // 입체적 그라데이션 (볼륨감)
+            const bodyGradient = ctx.createRadialGradient(
+                centerX - baseRadius * 0.3, centerY - baseRadius * 0.3, 0,
+                centerX, centerY, baseRadius
+            );
+            
+            // 캐릭터 타입별 몸체 색상
+            let bodyColor1, bodyColor2, bodyColor3;
+            switch (characterType.genre) {
+                case 'kpop':
+                    bodyColor1 = '#ec4899';
+                    bodyColor2 = '#f97316';
+                    bodyColor3 = '#8b5cf6';
+                    break;
+                case 'jazz':
+                    bodyColor1 = '#10b981';
+                    bodyColor2 = '#06b6d4';
+                    bodyColor3 = '#3b82f6';
+                    break;
+                case 'hiphop':
+                    bodyColor1 = '#f59e0b';
+                    bodyColor2 = '#ef4444';
+                    bodyColor3 = '#000000';
+                    break;
+                case 'classical':
+                    bodyColor1 = '#fbbf24';
+                    bodyColor2 = '#84cc16';
+                    bodyColor3 = '#a855f7';
+                    break;
+                case 'electronic':
+                    bodyColor1 = '#8b5cf6';
+                    bodyColor2 = '#ec4899';
+                    bodyColor3 = '#06b6d4';
+                    break;
+                default:
+                    bodyColor1 = '#8b5cf6';
+                    bodyColor2 = '#ec4899';
+                    bodyColor3 = '#3b82f6';
+            }
+            
+            bodyGradient.addColorStop(0, bodyColor1);
+            bodyGradient.addColorStop(0.4, bodyColor2);
+            bodyGradient.addColorStop(1, bodyColor3);
+            
+            ctx.fillStyle = bodyGradient;
+            ctx.fill();
+            
+            // 그림자 효과 제거
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            
+            // 테두리 (입체감)
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.6 + mouseInfluence * 0.3})`;
+            ctx.lineWidth = 3 + (isHovering ? 2 : 0);
+            ctx.stroke();
+            
+            // 하이라이트 (3D 볼륨감)
+            drawHighlights(ctx, centerX, centerY, baseRadius, characterType, time);
+        }
+
+        // 하이라이트 그리기 (3D 볼륨감)
+        function drawHighlights(ctx, centerX, centerY, radius, characterType, time) {
+            const highlightGradient = ctx.createRadialGradient(
+                centerX - radius * 0.4, centerY - radius * 0.4, 0,
+                centerX, centerY, radius * 0.8
+            );
+            
+            highlightGradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+            highlightGradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.4)');
+            highlightGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            
+            ctx.fillStyle = highlightGradient;
+            ctx.globalCompositeOperation = 'overlay';
+            ctx.fill();
+            ctx.globalCompositeOperation = 'source-over';
+        }
+
+        // 캐릭터 얼굴 그리기 (사랑스러운)
+        function drawCharacterFace(ctx, centerX, centerY, time, characterType, mouseX, mouseY, isHovering) {
+            const faceRadius = 45;
+            const faceX = centerX;
+            const faceY = centerY - 20;
+            
+            // 얼굴 배경 (입체적)
+            ctx.beginPath();
+            ctx.arc(faceX, faceY, faceRadius, 0, Math.PI * 2);
+            
+            const faceGradient = ctx.createRadialGradient(
+                faceX - faceRadius * 0.3, faceY - faceRadius * 0.3, 0,
+                faceX, faceY, faceRadius
+            );
+            
+            // 캐릭터 타입별 얼굴 색상
+            let faceColor;
+            switch (characterType.personality) {
+                case 'trendy':
+                    faceColor = '#fecaca';
+                    break;
+                case 'intellectual':
+                    faceColor = '#dbeafe';
+                    break;
+                case 'energetic':
+                    faceColor = '#fef3c7';
+                    break;
+                default:
+                    faceColor = '#e0e7ff';
+            }
+            
+            faceGradient.addColorStop(0, faceColor);
+            faceGradient.addColorStop(1, adjustBrightness(faceColor, -20));
+            
+            ctx.fillStyle = faceGradient;
+            ctx.fill();
+            
+            // 얼굴 테두리
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            // 눈 그리기 (사랑스러운)
+            drawEyes(ctx, faceX, faceY, characterType, time, mouseX, mouseY, isHovering);
+            
+            // 입 그리기 (감정 표현)
+            drawMouth(ctx, faceX, faceY, characterType, time, mouseX, mouseY, isHovering);
+            
+            // 볼 그리기 (귀여운)
+            drawCheeks(ctx, faceX, faceY, characterType, time);
+        }
+
+        // 눈 그리기 (사랑스러운)
+        function drawEyes(ctx, faceX, faceY, characterType, time, mouseX, mouseY, isHovering) {
+            const eyeSize = 8;
+            const eyeSpacing = 25;
+            
+            // 왼쪽 눈
+            const leftEyeX = faceX - eyeSpacing;
+            const leftEyeY = faceY - 5;
+            
+            // 오른쪽 눈
+            const rightEyeX = faceX + eyeSpacing;
+            const rightEyeY = faceY - 5;
+            
+            // 눈동자 (마우스 추적)
+            const mouseAngle = Math.atan2(mouseY - faceY, mouseX - faceX);
+            const eyeOffset = Math.min(3, Math.sqrt((mouseX - faceX) ** 2 + (mouseY - faceY) ** 2) * 0.01);
+            
+            // 왼쪽 눈
+            ctx.beginPath();
+            ctx.arc(leftEyeX, leftEyeY, eyeSize, 0, Math.PI * 2);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(leftEyeX + Math.cos(mouseAngle) * eyeOffset, leftEyeY + Math.sin(mouseAngle) * eyeOffset, eyeSize * 0.6, 0, Math.PI * 2);
+            ctx.fillStyle = characterType.personality === 'energetic' ? '#f59e0b' : '#3b82f6';
+            ctx.fill();
+            
+            // 오른쪽 눈
+            ctx.beginPath();
+            ctx.arc(rightEyeX, rightEyeY, eyeSize, 0, Math.PI * 2);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(rightEyeX + Math.cos(mouseAngle) * eyeOffset, rightEyeY + Math.sin(mouseAngle) * eyeOffset, eyeSize * 0.6, 0, Math.PI * 2);
+            ctx.fillStyle = characterType.personality === 'energetic' ? '#f59e0b' : '#3b82f6';
+            ctx.fill();
+            
+            // 깜빡임 효과
+            if (Math.random() < 0.01) {
+                ctx.fillStyle = 'white';
+                ctx.fillRect(leftEyeX - eyeSize, leftEyeY - eyeSize, eyeSize * 2, eyeSize * 2);
+                ctx.fillRect(rightEyeX - eyeSize, rightEyeY - eyeSize, eyeSize * 2, eyeSize * 2);
+            }
+        }
+
+        // 입 그리기 (감정 표현)
+        function drawMouth(ctx, faceX, faceY, characterType, time, mouseX, mouseY, isHovering) {
+            const mouthY = faceY + 15;
+            
+            // 캐릭터 타입별 입 모양
+            let mouthShape;
+            switch (characterType.emotion) {
+                case 'sensitive':
+                    mouthShape = 'sad';
+                    break;
+                case 'practical':
+                    mouthShape = 'neutral';
+                    break;
+                default:
+                    mouthShape = 'happy';
+            }
+            
+            ctx.strokeStyle = characterType.personality === 'energetic' ? '#f59e0b' : '#ef4444';
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            
+            switch (mouthShape) {
+                case 'happy':
+                    ctx.beginPath();
+                    ctx.arc(faceX, mouthY, 12, 0, Math.PI);
+                    ctx.stroke();
+                    break;
+                case 'sad':
+                    ctx.beginPath();
+                    ctx.arc(faceX, mouthY + 12, 12, Math.PI, Math.PI * 2);
+                    ctx.stroke();
+                    break;
+                default:
+                    ctx.beginPath();
+                    ctx.moveTo(faceX - 8, mouthY);
+                    ctx.lineTo(faceX + 8, mouthY);
+                    ctx.stroke();
+            }
+        }
+
+        // 볼 그리기 (귀여운)
+        function drawCheeks(ctx, faceX, faceY, characterType, time) {
+            const cheekSize = 6;
+            const cheekSpacing = 35;
+            
+            // 왼쪽 볼
+            ctx.beginPath();
+            ctx.arc(faceX - cheekSpacing, faceY + 5, cheekSize, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 182, 193, ${0.6 + Math.sin(time * 2) * 0.2})`;
+            ctx.fill();
+            
+            // 오른쪽 볼
+            ctx.beginPath();
+            ctx.arc(faceX + cheekSpacing, faceY + 5, cheekSize, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 182, 193, ${0.6 + Math.sin(time * 2 + 1) * 0.2})`;
+            ctx.fill();
+        }
+
+        // 캐릭터 액세서리 그리기 (개성)
+        function drawCharacterAccessories(ctx, centerX, centerY, time, characterType, mouseX, mouseY, isHovering) {
+            // 캐릭터 타입별 액세서리
+            switch (characterType.genre) {
+                case 'kpop':
+                    drawKpopAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering);
+                    break;
+                case 'jazz':
+                    drawJazzAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering);
+                    break;
+                case 'hiphop':
+                    drawHiphopAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering);
+                    break;
+                case 'classical':
+                    drawClassicalAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering);
+                    break;
+                case 'electronic':
+                    drawElectronicAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering);
+                    break;
+            }
+        }
+
+        // K-POP 액세서리
+        function drawKpopAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            // 헤어밴드
+            ctx.beginPath();
+            ctx.arc(centerX, centerY - 80, 60, Math.PI, Math.PI * 2);
+            ctx.strokeStyle = `hsla(${(time * 100) % 360}, 80%, 60%, 0.8)`;
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            
+            // 스파클 효과
+            for (let i = 0; i < 8; i++) {
+                const angle = (i / 8) * Math.PI * 2 + time * 0.5;
+                const x = centerX + Math.cos(angle) * 100;
+                const y = centerY + Math.sin(angle) * 100;
+                
+                ctx.fillStyle = `rgba(255, 215, 0, ${0.7 + Math.sin(time * 3 + i) * 0.3})`;
+                ctx.beginPath();
+                ctx.arc(x, y, 3 + Math.sin(time * 4 + i) * 2, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // 재즈 액세서리
+        function drawJazzAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            // 모자
+            ctx.beginPath();
+            ctx.ellipse(centerX, centerY - 85, 50, 20, 0, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${(time * 50) % 360}, 60%, 40%, 0.9)`;
+            ctx.fill();
+            
+            // 음표
+            const notes = ['♪', '♫', '♬'];
+            notes.forEach((note, index) => {
+                const x = centerX - 60 + index * 40;
+                const y = centerY - 60;
+                
+                ctx.fillStyle = `hsla(${(time * 30 + index * 60) % 360}, 70%, 50%, 0.8)`;
+                ctx.font = '24px Arial';
+                ctx.fillText(note, x, y);
+            });
+        }
+
+        // 힙합 액세서리
+        function drawHiphopAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            // 모자
+            ctx.beginPath();
+            ctx.rect(centerX - 45, centerY - 90, 90, 15);
+            ctx.fillStyle = '#000000';
+            ctx.fill();
+            
+            // 체인
+            for (let i = 0; i < 5; i++) {
+                const x = centerX - 40 + i * 20;
+                const y = centerY - 30;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 8, 0, Math.PI * 2);
+                ctx.strokeStyle = '#f59e0b';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            }
+        }
+
+        // 클래식 액세서리
+        function drawClassicalAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            // 왕관
+            const crownPoints = [
+                { x: centerX - 40, y: centerY - 90 },
+                { x: centerX - 20, y: centerY - 100 },
+                { x: centerX, y: centerY - 110 },
+                { x: centerX + 20, y: centerY - 100 },
+                { x: centerX + 40, y: centerY - 90 }
+            ];
+            
+            ctx.beginPath();
+            ctx.moveTo(crownPoints[0].x, crownPoints[0].y);
+            crownPoints.forEach(point => {
+                ctx.lineTo(point.x, point.y);
+            });
+            ctx.closePath();
+            
+            ctx.fillStyle = `hsla(${(time * 20) % 360}, 80%, 60%, 0.9)`;
+            ctx.fill();
+        }
+
+        // 일렉트로닉 액세서리
+        function drawElectronicAccessories(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            // 안테나
+            ctx.beginPath();
+            ctx.moveTo(centerX - 30, centerY - 90);
+            ctx.lineTo(centerX - 30, centerY - 120);
+            ctx.strokeStyle = '#8b5cf6';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            
+            // LED 불빛
+            ctx.beginPath();
+            ctx.arc(centerX - 30, centerY - 120, 5, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${(time * 200) % 360}, 100%, 60%, 0.8)`;
+            ctx.fill();
+        }
+
+        // 색상 밝기 조정 함수
+        function adjustBrightness(color, percent) {
+            const num = parseInt(color.replace("#", ""), 16);
+            const amt = Math.round(2.55 * percent);
+            const R = (num >> 16) + amt;
+            const G = (num >> 8 & 0x00FF) + amt;
+            const B = (num & 0x0000FF) + amt;
+            return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+                (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+                (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+        }
+
+        // 마우스 추적 효과
+        function drawMouseTrail(ctx, mouseX, mouseY, time, characterType) {
+            ctx.strokeStyle = `hsla(${(time * 100) % 360}, 70%, 60%, 0.6)`;
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            
+            // 마우스 주변에 작은 원 그리기
+            ctx.beginPath();
+            ctx.arc(mouseX, mouseY, 5 + Math.sin(time * 5) * 3, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            // 마우스에서 캐릭터로 향하는 선
+            const centerX = 200;
+            const centerY = 200;
+            const distance = Math.sqrt((mouseX - centerX) ** 2 + (mouseY - centerY) ** 2);
+            
+            if (distance > 100) {
+                ctx.beginPath();
+                ctx.moveTo(mouseX, mouseY);
+                ctx.lineTo(centerX, centerY);
+                ctx.strokeStyle = `hsla(${(time * 100) % 360}, 70%, 60%, ${0.3 * (1 - distance / 200)})`;
+                ctx.stroke();
+            }
+        }
+
+        // 내부 파동 그리기
+        function drawInnerWaves(ctx, centerX, centerY, time, analysis, mouseX, mouseY, isHovering) {
+            const innerRadius = 40;
+            const timeScale = analysis.listeningHabits.includes('4시간 이상') ? 2 : 1;
+            
+            ctx.beginPath();
+            for (let angle = 0; angle < Math.PI * 2; angle += 0.1) {
+                const wave = Math.sin(angle * 8 + time * timeScale * 2) * 8 +
+                             Math.sin(angle * 4 + time * timeScale * 1.5) * 5;
+                
+                const x = centerX + Math.cos(angle) * (innerRadius + wave);
+                const y = centerY + Math.sin(angle) * (innerRadius + wave);
+                
+                if (angle === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.closePath();
+            
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.3 + Math.sin(time * 2) * 0.2})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+
+        // 스파클 효과 (K-POP) - 고도화
+        function drawSparkles(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            const sparkleCount = 12;
+            for (let i = 0; i < sparkleCount; i++) {
+                const angle = (i / sparkleCount) * Math.PI * 2 + time * 0.5;
+                const distance = 120 + Math.sin(time * 3 + i) * 20;
+                const x = centerX + Math.cos(angle) * distance;
+                const y = centerY + Math.sin(angle) * distance;
+                
+                const sparkleSize = 2 + Math.sin(time * 4 + i) * 2;
+                const alpha = 0.5 + Math.sin(time * 2 + i) * 0.5;
+                
+                ctx.fillStyle = `rgba(251, 191, 36, ${alpha})`;
+                ctx.beginPath();
+                ctx.arc(x, y, sparkleSize, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // 빛나는 효과
+                ctx.shadowColor = '#fbbf24';
+                ctx.shadowBlur = 10;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        // 재즈 노트 (재즈) - 고도화
+        function drawJazzNotes(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            const notes = ['♪', '♫', '♬', '♩'];
+            const positions = [
+                { x: -100, y: -100, angle: time * 0.5 },
+                { x: 100, y: 100, angle: time * 0.7 },
+                { x: -80, y: 80, angle: time * 0.3 },
+                { x: 80, y: -80, angle: time * 0.9 }
+            ];
+            
+            notes.forEach((note, index) => {
+                const pos = positions[index];
+                const x = centerX + pos.x;
+                const y = centerY + pos.y;
+                
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(pos.angle);
+                
+                ctx.fillStyle = `hsla(16, 100%, 50%, ${0.7 + Math.sin(time * 2 + index) * 0.3})`;
+                ctx.font = `${20 + Math.sin(time * 3 + index) * 5}px Arial`;
+                ctx.fillText(note, 0, 0);
+                
+                ctx.restore();
+            });
+        }
+
+        // 힙합 요소 (힙합) - 고도화
+        function drawHipHopElements(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            const words = ['BEAT', 'FLOW', 'RHYTHM', 'STYLE'];
+            const positions = [
+                { x: -80, y: -120, scale: 1 + Math.sin(time * 4) * 0.2 },
+                { x: 80, y: 120, scale: 1 + Math.sin(time * 4 + 1) * 0.2 },
+                { x: -120, y: 80, scale: 1 + Math.sin(time * 4 + 2) * 0.2 },
+                { x: 120, y: -80, scale: 1 + Math.sin(time * 4 + 3) * 0.2 }
+            ];
+            
+            words.forEach((word, index) => {
+                const pos = positions[index];
+                const x = centerX + pos.x;
+                const y = centerY + pos.y;
+                
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.scale(pos.scale, pos.scale);
+                
+                ctx.fillStyle = `hsla(45, 100%, 50%, ${0.8 + Math.sin(time * 2 + index) * 0.2})`;
+                ctx.font = 'bold 14px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(word, 0, 0);
+                
+                ctx.restore();
+            });
+        }
+
+        // 클래식 요소 (클래식)
+        function drawClassicalElements(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            const elements = ['♔', '♕', '♖', '♗'];
+            const positions = [
+                { x: -90, y: -90, size: 24 },
+                { x: 90, y: 90, size: 24 },
+                { x: -90, y: 90, size: 20 },
+                { x: 90, y: -90, size: 20 }
+            ];
+            
+            elements.forEach((element, index) => {
+                const pos = positions[index];
+                const x = centerX + pos.x;
+                const y = centerY + pos.y;
+                
+                ctx.fillStyle = `hsla(60, 100%, 70%, ${0.6 + Math.sin(time * 1.5 + index) * 0.4})`;
+                ctx.font = `${pos.size}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.fillText(element, x, y);
+            });
+        }
+
+        // 일렉트로닉 요소 (일렉트로닉)
+        function drawElectronicElements(ctx, centerX, centerY, time, mouseX, mouseY, isHovering) {
+            const lines = 8;
+            for (let i = 0; i < lines; i++) {
+                const angle = (i / lines) * Math.PI * 2;
+                const startX = centerX + Math.cos(angle) * 60;
+                const startY = centerY + Math.sin(angle) * 60;
+                const endX = centerX + Math.cos(angle) * (100 + Math.sin(time * 3 + i) * 30);
+                const endY = centerY + Math.sin(angle) * (100 + Math.sin(time * 3 + i) * 30);
+                
+                const alpha = 0.3 + Math.sin(time * 2 + i) * 0.7;
+                ctx.strokeStyle = `rgba(147, 51, 234, ${alpha})`;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
+                ctx.stroke();
+            }
+        }
+
+        // 파티클 시스템
+        function drawParticles(ctx, centerX, centerY, time, characterType, mouseX, mouseY, isHovering) {
+            const particleCount = 30;
+            const baseSpeed = characterType.tempo === 'fast' ? 2 : 1;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const angle = (i / particleCount) * Math.PI * 2 + time * baseSpeed;
+                const distance = 150 + Math.sin(time * 2 + i) * 50;
+                const x = centerX + Math.cos(angle) * distance;
+                const y = centerY + Math.sin(angle) * distance;
+                
+                const size = 1 + Math.sin(time * 3 + i) * 2;
+                const alpha = 0.3 + Math.sin(time * 1.5 + i) * 0.7;
+                
+                ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // 캐릭터 다운로드
+        function downloadCharacter() {
+            const canvas = document.getElementById('characterCanvas');
+            const link = document.createElement('a');
+            link.download = 'my-music-character.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        // SNS 공유
+        function shareCharacter() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '나만의 인생음악 캐릭터',
+                    text: '음악취향 설문으로 만든 나만의 음악 캐릭터를 확인해보세요!',
+                    url: window.location.href
+                });
+            } else {
+                // 공유 API가 지원되지 않는 경우
+                alert('이 브라우저에서는 공유 기능을 지원하지 않습니다.');
+            }
+        }
+
+        // 설문으로 돌아가기
+        function goBackToSurvey() {
+            document.getElementById('birthPage').classList.add('hidden');
+            document.getElementById('musicSurveyForm').reset();
+            window.scrollTo(0, 0);
+        }
+
+        // 모달 닫기
+        function closeResultModal() {
+            document.getElementById('resultModal').classList.add('hidden');
+        }
+
+        // 모달 외부 클릭 시 닫기
+        document.getElementById('resultModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeResultModal();
+            }
+        });
+    </script>
+</body>
+</html> 
